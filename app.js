@@ -6,7 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-require("./routes/post.routes")(app);
+// serve
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
 // connect to database
 const db = require("./app/models");
@@ -23,15 +27,11 @@ db.mongoose
     process.exit();
   });
 
-//
+// route
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome!",
   });
 });
 
-// serve
-const PORT = 8000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+require("./routes/post.routes")(app);
