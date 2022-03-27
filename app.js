@@ -27,7 +27,7 @@ db.mongoose
     process.exit();
   });
 
-// route
+// routes
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome!",
