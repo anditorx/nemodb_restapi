@@ -17,23 +17,23 @@ app.listen(PORT, () => {
 
 // // connect to database
 const db = require("./app/models");
-// db.mongoose
-//   .connect(db.url, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then((result) => {
-//     console.log("Database Connected");
-//   })
-//   .catch((err) => {
-//     console.log("Cannot connect to database | ERROR:", err);
-//     process.exit();
-//   });
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((result) => {
+    console.log("Database Connected");
+  })
+  .catch((err) => {
+    console.log("Cannot connect to database | ERROR:", err);
+    process.exit();
+  });
 
 //
-db.mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
-  console.log("connect to db")
-);
+// db.mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
+//   console.log("connect to db")
+// );
 
 // routes
 app.get("/", (req, res) => {

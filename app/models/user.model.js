@@ -1,9 +1,24 @@
 module.exports = (mongoose) => {
   const schema = mongoose.Schema(
     {
-      fullname: String,
-      email: String,
-      password: String,
+      fullname: {
+        type: String,
+        required: true,
+        min: 2,
+        max: 225,
+      },
+      email: {
+        type: String,
+        required: true,
+        min: 3,
+        max: 225,
+      },
+      password: {
+        type: String,
+        required: true,
+        min: 3,
+        max: 1024,
+      },
       token: String,
       status: Boolean,
     },
